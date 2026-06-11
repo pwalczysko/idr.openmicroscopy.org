@@ -14,4 +14,10 @@ docker run --rm -v $PWD/_site:/site/about jekyll/builder:pages /usr/gem/bin/html
   "accept_encoding":"gzip"
 }'
 
-lychee --method get _site
+
+echo "Running lychee for external links..."
+
+docker run --rm \
+  -v "$(pwd):/input" \
+  lycheeverse/lychee \
+  --method get /input/_site
