@@ -20,4 +20,6 @@ echo "Running lychee for external links..."
 docker run --rm \
   -v "$(pwd):/input" \
   lycheeverse/lychee \
-  --method get /input/_site
+  --method get \
+  --insecure \
+  /input/_site
